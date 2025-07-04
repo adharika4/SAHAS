@@ -19,7 +19,6 @@ model = None
 scaler = None
 feature_columns = None
 
-MONGO_URI = "mongodb+srv://harshitaa2809:harshita@cluster1.dabjbnw.mongodb.net/"
 client = MongoClient(MONGO_URI)
 db = client["Sahas"]               # Replace with your DB name
 contacts_collection = db["Contact"]
