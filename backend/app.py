@@ -5,7 +5,9 @@ import numpy as np
 import pickle
 import logging
 from datetime import datetime
-from pymongo import MongoClient  # ✅ Added for MongoDB
+from pymongo import MongoClient
+from dotenv import load_dotenv  # ✅ Added for MongoDB
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -19,7 +21,9 @@ model = None
 scaler = None
 feature_columns = None
 
-client = MongoClient(MONGO_URI)
+load_dotenv()  # Load from .env
+mongo_uri = os.getenv("MONGO_URI")
+client = MongoClient(mongo_uri)
 db = client["Sahas"]               # Replace with your DB name
 contacts_collection = db["Contact"]
 
