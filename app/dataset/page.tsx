@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Download, Database, FileText, Calendar, MapPin, TrendingUp } from "lucide-react"
 
+
 const datasets = [
   {
     name: "State-wise Trafficking Cases",
@@ -13,7 +14,7 @@ const datasets = [
     format: "CSV",
     records: "45,847",
     relevance: "Primary dataset for trafficking case prediction",
-    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/trafficking_2014-2018.csv",
+    link: "https://github.com/adharika4/SAHAS/blob/main/trafficking_2014-2018.csv",
   },
   {
     name: "State Poverty Rates",
@@ -24,7 +25,7 @@ const datasets = [
     format: "CSV",
     records: "196",
     relevance: "Key indicator of trafficking vulnerability",
-    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/poverty_last_7_years.csv",
+    link: "https://github.com/adharika4/SAHAS/blob/main/poverty_last_7_years.csv",
   },
   {
     name: "Education & Literacy Rates",
@@ -35,7 +36,7 @@ const datasets = [
     format: "CSV",
     records: "420",
     relevance: "Education-related vulnerabilities",
-    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/main_factors.csv",
+    link: "https://github.com/adharika4/SAHAS/blob/main/main_factors.csv",
   },
   {
     name: "Employment & Labor Statistics",
@@ -46,7 +47,7 @@ const datasets = [
     format: "CSV",
     records: "2,800",
     relevance: "Impact of economic opportunity on trafficking risk",
-    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/main_factors.csv",
+    link: "https://github.com/adharika4/SAHAS/blob/main/main_factors.csv",
   },
   {
     name: "Crime Rate Statistics",
@@ -57,18 +58,18 @@ const datasets = [
     format: "CSV",
     records: "1,960",
     relevance: "Contextual crime environment",
-    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/total_crimes_2018,19,20,21,22.csv",
+    link: "https://github.com/adharika4/SAHAS/blob/main/total_crimes_2018%2C19%2C20%2C21%2C22.csv",
   },
   {
-    name: "Crimes Against Women",
-    description: "Trafficking-related crimes targeting women.",
-    source: "NCRB",
-    year: "2011-2021",
+    name: "Demographic Data",
+    description: "Age, gender, and migration patterns to assess at-risk populations.",
+    source: "Census of India",
+    year: "2011",
     size: "7.8 MB",
     format: "CSV",
     records: "4,200",
-    relevance: "Trafficking-related crimes targeting women",
-    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/crime_against_women_2011_-_2021.csv",
+    relevance: "Age, gender, and migration patterns to assess at-risk populations",
+    link: "https://github.com/adharika4/SAHAS/blob/main/main_factors.csv",
   },
 ]
 export default function DatasetPage() {
