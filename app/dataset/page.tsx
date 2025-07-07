@@ -13,6 +13,7 @@ const datasets = [
     format: "CSV",
     records: "45,847",
     relevance: "Primary dataset for trafficking case prediction",
+    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/trafficking_2014-2018.csv",
   },
   {
     name: "State Poverty Rates",
@@ -23,6 +24,7 @@ const datasets = [
     format: "CSV",
     records: "196",
     relevance: "Key indicator of trafficking vulnerability",
+    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/poverty_last_7_years.csv",
   },
   {
     name: "Education & Literacy Rates",
@@ -33,6 +35,7 @@ const datasets = [
     format: "CSV",
     records: "420",
     relevance: "Education-related vulnerabilities",
+    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/main_factors.csv",
   },
   {
     name: "Employment & Labor Statistics",
@@ -43,6 +46,7 @@ const datasets = [
     format: "CSV",
     records: "2,800",
     relevance: "Impact of economic opportunity on trafficking risk",
+    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/main_factors.csv",
   },
   {
     name: "Crime Rate Statistics",
@@ -53,19 +57,20 @@ const datasets = [
     format: "CSV",
     records: "1,960",
     relevance: "Contextual crime environment",
+    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/total_crimes_2018,19,20,21,22.csv",
   },
   {
-    name: "Demographic Data",
-    description: "Age, gender, and migration patterns to assess at-risk populations.",
-    source: "Census of India",
-    year: "2011",
+    name: "Crimes Against Women",
+    description: "Trafficking-related crimes targeting women.",
+    source: "NCRB",
+    year: "2011-2021",
     size: "7.8 MB",
     format: "CSV",
     records: "4,200",
-    relevance: "Age, gender, and migration patterns to assess at-risk populations",
+    relevance: "Trafficking-related crimes targeting women",
+    link: "https://raw.githubusercontent.com/adharika4/SAHAS/main/datasets/crime_against_women_2011_-_2021.csv",
   },
 ]
-
 export default function DatasetPage() {
   return (
     <div className="min-h-screen bg-background">
@@ -168,10 +173,12 @@ export default function DatasetPage() {
                     <p className="text-sm text-muted-foreground mt-1">{dataset.relevance}</p>
                   </div>
 
-                  <Button variant="outline" className="w-full mt-4 bg-transparent">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Dataset
-                  </Button>
+                 <a href={dataset.link} target="_blank" rel="noopener noreferrer">
+                   <Button variant="outline" className="w-full mt-4 bg-transparent">
+                      <Download className="w-4 h-4 mr-2" />
+                          View/Download Dataset
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
