@@ -5,6 +5,9 @@ import numpy as np
 import pickle
 import logging
 from datetime import datetime
+from pymongo import MongoClient
+from dotenv import load_dotenv  # ✅ Added for MongoDB
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -17,6 +20,12 @@ logger = logging.getLogger(__name__)
 model = None
 scaler = None
 feature_columns = None
+
+load_dotenv()  # Load from .env
+mongo_uri = os.getenv("MONGO_URI")
+client = MongoClient(mongo_uri)
+db = client["Sahas"]               # Replace with your DB name
+contacts_collection = db["Contact"]
 
 def load_model():
     """Load the trained model and preprocessing objects"""
@@ -303,6 +312,34 @@ def export_data():
     except Exception as e:
         logger.error(f"Error exporting data: {str(e)}")
         return jsonify({'error': 'Error exporting data'}), 500
+    
+@app.route('/api/contact-submit', methods=['POST'])
+def submit_contact():
+    try:
+        data = request.get_json()
+        name = data.get('name')
+        email = data.get('email')
+        subject = data.get('subject')
+        message = data.get('message')
+
+        if not name or not email or not subject or not message:
+            return jsonify({'error': 'All fields are required'}), 400
+
+        contacts_collection.insert_one({
+            'name': name,
+            'email': email,
+            'subject': subject,
+            'message': message,
+            'timestamp': datetime.now()
+        })
+
+        logger.info(f"New contact from {name} <{email}> - Subject: {subject}")
+        return jsonify({'message': 'Message received successfully'}), 201
+
+    except Exception as e:
+        logger.error(f"Error submitting contact: {str(e)}")
+        return jsonify({'error': 'Error saving contact message'}), 500
+
 
 if __name__ == '__main__':
     # Initialize the application
