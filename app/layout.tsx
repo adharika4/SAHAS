@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Sahas - Fighting Human Trafficking with AI in India",
   description: "Advanced AI-powered prediction system to identify and prevent human trafficking patterns in India",
-    generator: 'v0.dev'
+  generator: "Next.js",
 }
 
 export default function RootLayout({

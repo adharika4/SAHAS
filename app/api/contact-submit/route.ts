@@ -1,4 +1,4 @@
-import clientPromise from "@/lib/mongodb"
+import { getMongoClient } from "@/lib/mongodb"
 import { NextResponse } from "next/server"
 
 export async function POST(request: Request) {
@@ -9,7 +9,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "All fields are required." }, { status: 400 })
     }
 
-    const client = await clientPromise
+    const client = await getMongoClient()
     const db = client.db("Sahas") // 👈 You are using 'Sahas' as DB name in Compass
     const contacts = db.collection("Contact")
 
